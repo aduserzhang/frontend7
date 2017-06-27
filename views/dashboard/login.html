@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学IT - 后台管理系统</title>
+   
+     <?php include "/views/public/css.html" ?>
+</head>
+<body>
+    <!-- 登录 -->
+    <div class="login">
+        <div class="login-wrap">
+            <div class="avatar">
+
+                <img src="/views/static/uploads/monkey.png" class="img-circle" alt="">
+            </div>
+            <form id="login-form" action="" method="" class="col-xs-offset-1 col-xs-10">
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon">
+                        <i class="fa fa-user"></i>
+                    </span>
+                    <input name="tc_name" id="username" type="text" class="form-control" placeholder="用户名">
+                </div>
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon">
+                        <i class="fa fa-key"></i>
+                    </span>
+                    <input name="tc_pass" id="password" type="password" class="form-control" placeholder="密码">
+                </div>
+                <button type="submit" class="btn btn-lg btn-primary btn-block">登 录</button>
+            </form>
+        </div>
+    </div>
+    
+    <?php include "/views/public/js.html" ?>
+    <script>
+        $(function(){
+            
+               $("#login-form").submit(function(){
+               //      var username = $("#username").val();
+               //      var password = $("#password").val();
+               //       $.ajax({
+               //          url:"/api/login",
+               //          type:"post",
+               //          data:{
+               //              tc_name:username,
+               //              tc_pass:password
+               //          },
+               //          success:function(data){
+               //              // console.log(data);
+               //              if(data.code == 200){
+               //                  //hu
+               //                  $.cookie("userinfo",JSON.stringify(data.result),{path:"/"});
+
+               //                  location.href = "/";
+               //              }
+               //          }
+               //      })
+                    $(this).ajaxSubmit({
+                        url:"/api/login",
+                        type:"post",
+                        success:function(data){
+                            if(data.code == 200){
+                                $.cookie("userinfo",JSON.stringify(data.result),{path:"/"});
+                                location.href = "/";
+                            }
+                        }
+                    })
+                     return false;
+               }) 
+        })
+    </script>
+</body>
+</html>
