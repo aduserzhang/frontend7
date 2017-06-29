@@ -1,6 +1,13 @@
 <div class="aside">
 <!-- 个人资料 -->
 <div class="profile" id="userinfo">
+
+     <script type="text/template" id="profile-tpl">
+        <div class="avatar img-circle">
+            <img src="{{tc_avatar}}">
+        </div>
+        <h4>{{tc_name}}</h4>
+    </script>
     <!-- 头像 -->
     <!-- <div class="avatar img-circle">
         <img src="/views/static/uploads/avatar.jpg">
@@ -11,9 +18,9 @@
 <div class="navs">
     <ul class="list-unstyled">
         <li>
-            <a href="./index.html" class="active">
+            <a href="dashboard/index" class="active">
                 <i class="fa fa-home"></i>
-                仪表pan
+                仪表盘
             </a>
         </li>
         <li>

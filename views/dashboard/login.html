@@ -32,43 +32,12 @@
         </div>
     </div>
     
-    <?php include "/views/public/js.html" ?>
+   
+   
+    <script src="/views/static/libs/config"></script>
+    <script src="/views/static/libs/require"></script>
     <script>
-        $(function(){
-            
-               $("#login-form").submit(function(){
-               //      var username = $("#username").val();
-               //      var password = $("#password").val();
-               //       $.ajax({
-               //          url:"/api/login",
-               //          type:"post",
-               //          data:{
-               //              tc_name:username,
-               //              tc_pass:password
-               //          },
-               //          success:function(data){
-               //              // console.log(data);
-               //              if(data.code == 200){
-               //                  //hu
-               //                  $.cookie("userinfo",JSON.stringify(data.result),{path:"/"});
-
-               //                  location.href = "/";
-               //              }
-               //          }
-               //      })
-                    $(this).ajaxSubmit({
-                        url:"/api/login",
-                        type:"post",
-                        success:function(data){
-                            if(data.code == 200){
-                                $.cookie("userinfo",JSON.stringify(data.result),{path:"/"});
-                                location.href = "/";
-                            }
-                        }
-                    })
-                     return false;
-               }) 
-        })
+      require(["static/js/dashboard/login"]); 
     </script>
 </body>
 </html>
