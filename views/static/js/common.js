@@ -4,7 +4,7 @@ define(["jquery","template","cookie"],function($,template){
 				if("/dashboard/login" != location.pathname){ 
 
 					 //判断用户有没有登录
-					 if($.cookie("PHPSESSID")){
+					 if(!$.cookie("PHPSESSID")){
 					 	//没有登录回到登录页
 					 	 location.href = "/dashboard/login"
 					 }else{
@@ -16,5 +16,19 @@ define(["jquery","template","cookie"],function($,template){
 					 }
 	 				
 				 }
+
+				 //退出功能实现
+				$("#logout").click(function(){
+					$.ajax({
+						url:"/api/logout",
+						type:"post",
+						success:function(data){
+								// console.log(data);
+								if(data.code == 200){
+									location.href = "dashboard/login"
+								}
+						}
+					})
+				})
 			})  
 })
