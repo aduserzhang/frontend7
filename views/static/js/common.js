@@ -32,24 +32,20 @@ define(["jquery","template","cookie"],function($,template){
 			 })  
 			
 
-			 
-
-				
-				
 				//给导航栏上所有的li绑定单击事件，点击的时候让当前的背景遍暗
 				 $(".navs>ul>li").click(function(){
 				 	  $(this).children("a").addClass("active");
 				 	  $(this).siblings().children("a").removeClass("active");
-				 	  // return false;
 				 	 })
+				  
 				  //导航栏上的二级菜单的显示
 				$(".navs>ul>li>ul").parent().click(function(){
 					var $ul = $(this).children("ul")
-						$ul.slideToggle();
+						  $ul.slideToggle();
+						  //
 						if($ul.find("a.active").length > 0){
 							$(this).children("a").removeClass("active");
 						}
-
 				})
 
 				

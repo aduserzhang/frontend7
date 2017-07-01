@@ -78,7 +78,7 @@
             <td>{{v.tc_join_date}}</td>
             <td data-id="{{v.tc_id}}">
                 <a href="#teacherModal" data-toggle="modal" class="btn btn-info btn-xs check">查 看</a>
-                <a href="/teacher/add" class="btn btn-info btn-xs">编 辑</a>
+                <a href="/teacher/add?id={{v.tc_id}}" class="btn btn-info btn-xs">编 辑</a>
                 {{if v.tc_status == 1}}
                 <a href="javascript:;" class="btn btn-warning btn-xs onoff" data-status="{{v.tc_status}}">注 销</a>
                 {{else}}
